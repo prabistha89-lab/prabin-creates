@@ -31,3 +31,42 @@
 @media(max-width:800px){.section{padding:78px 0}.nav-actions>.button{display:none}.hero{padding-top:50px}.hero-grid,.about-preview,.story-grid,.philosophy-grid,.tools-grid,.included-grid,.benefit-detail,.faq-grid,.service-detail-grid,.case-study,.contact-layout{grid-template-columns:1fr}.hero-grid{gap:25px}.hero h1{font-size:clamp(3rem,12vw,5.2rem)}.portrait-composition{min-height:630px;max-width:600px;width:100%;margin:auto}.hero-proof{flex-wrap:wrap}.marquee-line{justify-content:flex-start;overflow:hidden}.section-heading{align-items:start;flex-direction:column}.portfolio-grid{gap-bottom:30px}.process-grid{grid-template-columns:repeat(2,1fr)}.why-grid{grid-template-columns:1fr;gap:45px}.testimonial-grid,.blog-grid{grid-template-columns:1fr}.testimonial-card{min-height:260px}.cta-card{padding:42px;flex-direction:column;align-items:flex-start}.cta-actions{flex-direction:row;flex-wrap:wrap}.story-grid{gap:45px}.about-portrait img{height:auto;max-height:650px}.career-band .container{grid-template-columns:repeat(2,1fr);gap:25px}.career-band .container>div{border:0}.service-detail-grid{gap:45px}.service-poster{max-width:540px;width:100%;margin:auto}.gallery-grid{grid-template-columns:1fr}.gallery-lines{grid-column:auto}.featured-article .container{grid-template-columns:1fr}.article-feature-art{height:420px}.article-layout{grid-template-columns:1fr;gap:25px}.article-layout aside{position:static;display:flex;flex-wrap:wrap;border-left:0;border-bottom:1px solid var(--border);padding:0 0 20px}.article-layout aside strong{width:100%}.share-list{width:100%}.contact-sidebar{grid-template-columns:1fr 1fr}.contact-sidebar>div:first-child,.consultation-note{grid-column:1/-1}.footer-grid{grid-template-columns:1fr 1fr}.footer-intro{grid-column:1/-1}.footer-grid>div:last-child{grid-column:auto}.project-art-large{aspect-ratio:1.35}}
 @media(max-width:600px){.container{width:min(100% - 26px,var(--container))}.site-header{height:68px}.site-header .brand{font-size:.96rem}.brand-mark{width:35px;height:35px}.mobile-nav{top:68px}.section{padding:65px 0}.hero{min-height:auto}.hero .eyebrow{font-size:.63rem}.hero-grid{display:flex;flex-direction:column}.hero-copy{order:1}.portrait-composition{order:2;min-height:495px}.portrait-frame{inset:5px 20px 0}.swatch-card{left:3px;bottom:32px}.type-card{right:2px;top:45px}.hero-proof{gap:18px}.button-row .button{width:100%}.experience-strip{margin-top:0}.about-preview{gap:36px}.service-grid,.portfolio-grid{grid-template-columns:1fr}.service-card{min-height:310px}.section-heading{margin-bottom:34px}.process-grid{grid-template-columns:1fr}.process-card{min-height:210px}.process-card h3{margin-top:35px}.benefit-grid{grid-template-columns:1fr}.cta-wrap{padding:25px 0 65px}.cta-card{padding:32px 24px;border-radius:20px}.cta-actions{width:100%}.cta-actions .button{width:100%}.page-hero{padding:60px 0 70px}.breadcrumbs{margin-bottom:35px}.page-hero h1{font-size:clamp(2.9rem,14vw,4.4rem)}.value-list{grid-template-columns:1fr}.included-grid>div:last-child{grid-template-columns:1fr}.career-band .container{grid-template-columns:1fr}.split-lists{grid-template-columns:1fr;gap:18px}.split-lists ul{columns:1}.related-grid{grid-template-columns:1fr}.project-facts{grid-template-columns:1fr 1fr}.project-facts span{border-bottom:1px solid var(--border)}.gallery-detail>b{font-size:5rem}.article-byline{flex-wrap:wrap}.article-feature-art{height:350px;padding:30px}.article-feature-art b{font-size:3rem;max-width:90%}.article-layout{padding-bottom:60px}.article-nav{grid-template-columns:1fr}.article-nav span:empty{display:none}.contact-sidebar{grid-template-columns:1fr}.contact-sidebar>div:first-child,.consultation-note{grid-column:auto}.contact-form{padding:24px 18px}.form-intro{align-items:start;flex-direction:column}.form-intro>span{text-align:left}.form-grid{grid-template-columns:1fr}.form-wide{grid-column:auto}.footer-grid{grid-template-columns:1fr;gap:35px}.footer-intro,.footer-grid>div:last-child{grid-column:auto}.footer-bottom{align-items:flex-start;flex-direction:column}.floating-contact{right:13px;bottom:13px}.scroll-top{right:17px;bottom:70px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+/* Updated brand, contact and responsive refinements */
+.nav-shell{gap:22px}
+.brand{display:inline-flex;align-items:center;flex:0 0 auto}
+.brand-logo{display:block;width:154px;height:60px;object-fit:contain;object-position:left center}
+.desktop-nav{gap:23px}
+.desktop-nav a{font-size:.88rem}
+.nav-actions{gap:9px;flex:0 0 auto}
+.button-whatsapp{background:#128c4a;border-color:#128c4a;color:#fff}
+.button-whatsapp:hover{background:#0b6f3a;color:#fff;box-shadow:0 12px 30px rgba(18,140,74,.22)}
+.portrait-frame{inset:18px 30px 0}
+.footer-brand-name{color:#fff!important;font-family:var(--font-heading),sans-serif;font-size:1.3rem!important;font-weight:800;margin:0!important}
+.footer-intro>p:not(.footer-brand-name){color:#8faabd;max-width:380px;font-size:.88rem;margin:25px 0}
+.social-row{display:flex;flex-wrap:wrap;gap:8px}
+.social-row a{display:inline-flex;align-items:center;justify-content:center;width:auto;height:36px;min-height:36px;padding:0 12px;border-radius:999px;font-size:.7rem}
+.floating-contact{display:inline-flex;align-items:center;gap:8px;background:#128c4a;border-color:#0b6f3a}
+
+@media(max-width:1180px){
+  .desktop-nav{gap:17px}
+  .desktop-nav a{font-size:.82rem}
+  .nav-actions .button{padding-inline:15px}
+}
+@media(max-width:1050px){
+  .desktop-nav{display:none}
+}
+@media(max-width:720px){
+  .nav-actions>.button{display:none}
+  .menu-button{display:grid}
+  .hero-grid{display:flex;flex-direction:column}
+  .hero-copy{order:1}
+  .portrait-composition{order:2;width:100%;max-width:560px;margin-inline:auto}
+}
+@media(max-width:600px){
+  .brand-logo{width:118px;height:52px}
+  .nav-shell{gap:10px}
+  .portrait-frame{inset:5px 20px 0}
+  .social-row a{min-height:42px;padding-inline:14px}
+  .floating-contact{right:13px;bottom:13px;min-height:46px;padding:0 16px}
+}

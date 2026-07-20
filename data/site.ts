@@ -5,6 +5,8 @@ export const siteConfig = {
   email: "mail@shresthaprabin89.com.np",
   phone: "+977 9845150872",
   phoneHref: "+9779845150872",
+  whatsappHref:
+    "https://wa.me/9779845150872?text=Hello%20Prabin%2C%20I%27d%20like%20to%20discuss%20a%20design%20project.",
   location: "Bharatpur–11, Chitwan, Nepal",
   url:
     process.env.NEXT_PUBLIC_SITE_URL ||
@@ -12,10 +14,10 @@ export const siteConfig = {
   description:
     "Professional branding, print and digital media design services in Bharatpur, Chitwan, Nepal.",
   socials: [
-    { label: "Facebook", href: "https://facebook.com/" },
-    { label: "Instagram", href: "https://instagram.com/" },
-    { label: "Behance", href: "https://behance.net/" },
-    { label: "LinkedIn", href: "https://linkedin.com/" },
+    { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61591835314293" },
+    { label: "Instagram", href: "https://www.instagram.com/prabincreates" },
+    { label: "TikTok", href: "https://www.tiktok.com/@prabincreates" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/prabin-shrestha-5344a4422/" },
   ],
 } as const;
 
