@@ -6,7 +6,9 @@ export const siteConfig = {
   phone: "+977 9845150872",
   phoneHref: "+9779845150872",
   location: "Bharatpur–11, Chitwan, Nepal",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    "https://designer-prabin-portfolio.mhflex89.chatgpt.site",
   description:
     "Professional branding, print and digital media design services in Bharatpur, Chitwan, Nepal.",
   socials: [

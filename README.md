@@ -75,11 +75,10 @@ Keep the same filename to replace it without changing components, or update the 
 
 ## Adding the real CV
 
-Place the final PDF at:
-
-`public/documents/prabin-shrestha-cv.pdf`
-
-The About page download button is already wired to this path.
+The About page currently offers a direct email-based CV request so visitors do
+not encounter a broken download. When an approved CV is available, place it at
+`public/documents/prabin-shrestha-cv.pdf` and change the button back to a local
+download link.
 
 ## Contact email setup
 
