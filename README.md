@@ -87,6 +87,7 @@ download link.
 5. Review logs without printing contact data.
 
 The visible form uses client-side Zod validation, a honeypot and FormSubmit's AJAX endpoint so it works without relying on a framework API route. The optional route handler remains available with server-side validation, input cleaning and basic in-memory rate limiting.
+Local previews identify themselves with the production contact URL so they reuse the same FormSubmit activation instead of registering a separate localhost form.
 
 ## Legal content
 

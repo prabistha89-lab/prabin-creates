@@ -25,6 +25,8 @@ test("contact enquiries use FormSubmit and the business inbox", () => {
   assert.match(route, /mail@shresthaprabin89\.com\.np/);
   assert.match(form, /formsubmit\.co\/ajax/);
   assert.match(form, /mail@shresthaprabin89\.com\.np/);
+  assert.match(form, /designer-prabin-portfolio\.mhflex89\.chatgpt\.site\/contact/);
+  assert.match(form, /Activate Form/);
   assert.match(form, /method="POST"/);
   assert.match(form, /Submit Form/);
 });

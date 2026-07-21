@@ -9,6 +9,7 @@ import { Icon } from "./Icon";
 
 const CONTACT_EMAIL = "mail@shresthaprabin89.com.np";
 const FORM_ENDPOINT = `https://formsubmit.co/ajax/${CONTACT_EMAIL}`;
+const FORM_PAGE_URL = "https://designer-prabin-portfolio.mhflex89.chatgpt.site/contact";
 
 const serviceOptions = [
   ["branding-visual-identity", "Branding and Visual Identity"], ["print-design", "Print Design"],
@@ -20,7 +21,7 @@ const serviceOptions = [
 export function ContactForm() {
   const params = useSearchParams();
   const formRef = useRef<HTMLFormElement>(null);
-  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "success" | "activation" | "error">("idle");
   const { register, handleSubmit, reset, setValue, formState: { errors, isSubmitting } } = useForm<ContactInput>({
     resolver: zodResolver(contactSchema),
     defaultValues: { service: "consultation", consultationMethod: "phone", consent: false, website: "", budget: "" },
@@ -60,11 +61,20 @@ export function ContactForm() {
           _subject: `New design enquiry from ${data.fullName}`,
           _template: "table",
           _captcha: "false",
-          _url: window.location.href.split("#")[0],
+          // Keep local previews and production submissions attached to one
+          // FormSubmit registration so only one activation is required.
+          _url: FORM_PAGE_URL,
         }),
       });
-      const result = await response.json().catch(() => null) as { success?: boolean | string } | null;
-      if (!response.ok || result?.success === false || result?.success === "false") throw new Error("Submission failed");
+      const result = await response.json().catch(() => null) as { success?: boolean | string; message?: string } | null;
+      if (result?.success === false || result?.success === "false") {
+        if (result.message?.toLowerCase().includes("activation")) {
+          setStatus("activation");
+          return;
+        }
+        throw new Error("Submission failed");
+      }
+      if (!response.ok) throw new Error("Submission failed");
       setStatus("success");
       reset();
     } catch {
@@ -92,6 +102,7 @@ export function ContactForm() {
         {fieldError("consent")}
       </div>
       {status === "success" && <div className="form-message success" role="status"><Icon name="circle-check" />Thank you. Your enquiry has been submitted to Designer Prabin.</div>}
+      {status === "activation" && <div className="form-message error" role="alert">One-time activation is required. Please open the FormSubmit email sent to {CONTACT_EMAIL}, click <b>Activate Form</b>, then submit again.</div>}
       {status === "error" && <div className="form-message error" role="alert">Your message could not be sent. Please try again or <a href={`mailto:${CONTACT_EMAIL}`}>email directly</a>.</div>}
       <button className="button form-submit" type="submit" disabled={isSubmitting}>{isSubmitting ? <><span className="spinner" />Submitting…</> : <>Submit Form<Icon name="send" size={18} /></>}</button>
     </form>
