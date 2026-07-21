@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArticleCard } from "@/components/BlogExplorer";
+import { LinkedInLogo } from "@/components/BrandIcons";
 import { CTASection } from "@/components/CTASection";
 import { Icon } from "@/components/Icon";
 import { getPost, posts } from "@/data/posts";
@@ -33,7 +34,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
       <header className="article-hero grid-paper"><div className="container narrow"><nav className="breadcrumbs"><Link href="/">Home</Link><span>/</span><Link href="/blog">Blog</Link><span>/</span><span>{post.category}</span></nav><p className="eyebrow">{post.category}</p><h1>{post.title}</h1><p className="page-lead">{post.excerpt}</p><div className="article-byline"><span>By Prabin Shrestha</span><span>{post.date}</span><span>{post.readTime}</span></div></div></header>
       <figure className="article-feature-image"><Image src={post.image} alt={post.imageAlt} fill priority unoptimized sizes="(max-width: 900px) 94vw, 1180px" /></figure>
       <div className="container article-layout">
-        <aside><strong>In this article</strong>{toc.map((section) => <a key={section.id} href={`#${section.id}`}>{section.heading}</a>)}<div className="share-list"><span>Share</span><a href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`/blog/${slug}`)}`} aria-label="Share on LinkedIn">in</a><a href={`mailto:?subject=${encodeURIComponent(post.title)}`} aria-label="Share by email">@</a></div></aside>
+        <aside><strong>In this article</strong>{toc.map((section) => <a key={section.id} href={`#${section.id}`}>{section.heading}</a>)}<div className="share-list"><span>Share</span><a href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`/blog/${slug}`)}`} aria-label="Share on LinkedIn"><LinkedInLogo size={15} /></a><a href={`mailto:?subject=${encodeURIComponent(post.title)}`} aria-label="Share by email">@</a></div></aside>
         <div className="article-body">
           <p className="article-intro">{post.intro}</p>
           {toc.map((section, sectionIndex) => <div key={section.id}>
