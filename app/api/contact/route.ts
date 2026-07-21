@@ -18,7 +18,7 @@ export async function POST(request: Request) {
     const parsed = contactSchema.safeParse(raw);
     if (!parsed.success) return NextResponse.json({ message: "Please check the form fields.", errors: parsed.error.flatten().fieldErrors }, { status: 400 });
     const data = { ...parsed.data, fullName: clean(parsed.data.fullName), phone: clean(parsed.data.phone), company: clean(parsed.data.company), deadline: clean(parsed.data.deadline), description: clean(parsed.data.description) };
-    const contactEmail = process.env.CONTACT_EMAIL || "mail@shresthaprabin89.com.np";
+    const contactEmail = process.env.CONTACT_EMAIL || "prabistha89@gmail.com";
     const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://designer-prabin-portfolio.mhflex89.chatgpt.site";
     const contactUrl = `${siteUrl.replace(/\/$/, "")}/contact`;
     const subject = `New design enquiry from ${data.fullName}`;

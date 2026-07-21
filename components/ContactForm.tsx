@@ -1,14 +1,11 @@
 "use client";
 
-import { zodResolver } from "@hookform/resolvers/zod";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
-import { useForm } from "react-hook-form";
-import { contactSchema, type ContactInput } from "@/lib/validation/contact";
+import { useEffect, useRef } from "react";
 import { Icon } from "./Icon";
 
-const CONTACT_EMAIL = "mail@shresthaprabin89.com.np";
-const FORM_ENDPOINT = `https://formsubmit.co/ajax/${CONTACT_EMAIL}`;
+const CONTACT_EMAIL = "prabistha89@gmail.com";
+const FORM_ENDPOINT = `https://formsubmit.co/${CONTACT_EMAIL}`;
 const FORM_PAGE_URL = "https://designer-prabin-portfolio.mhflex89.chatgpt.site/contact";
 
 const serviceOptions = [
@@ -20,91 +17,35 @@ const serviceOptions = [
 
 export function ContactForm() {
   const params = useSearchParams();
-  const formRef = useRef<HTMLFormElement>(null);
-  const [status, setStatus] = useState<"idle" | "success" | "activation" | "error">("idle");
-  const { register, handleSubmit, reset, setValue, formState: { errors, isSubmitting } } = useForm<ContactInput>({
-    resolver: zodResolver(contactSchema),
-    defaultValues: { service: "consultation", consultationMethod: "phone", consent: false, website: "", budget: "" },
-  });
+  const serviceRef = useRef<HTMLSelectElement>(null);
+  const requestedService = params.get("service");
+  const defaultService = serviceOptions.some(([value]) => value === requestedService) ? requestedService || "consultation" : "consultation";
 
   useEffect(() => {
-    const service = params.get("service");
-    if (serviceOptions.some(([value]) => value === service)) {
-      setValue("service", service as ContactInput["service"]);
-      if (service === "consultation") window.setTimeout(() => formRef.current?.querySelector<HTMLSelectElement>("#service")?.focus(), 100);
-    }
-  }, [params, setValue]);
-
-  const onSubmit = async (data: ContactInput) => {
-    setStatus("idle");
-    try {
-      if (data.website) {
-        setStatus("success");
-        reset();
-        return;
-      }
-
-      const response = await fetch(FORM_ENDPOINT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          name: data.fullName,
-          email: data.email,
-          phone: data.phone || "Not provided",
-          organisation: data.company || "Not provided",
-          service: data.service,
-          budget: data.budget,
-          consultation_method: data.consultationMethod,
-          deadline: data.deadline || "Not provided",
-          message: data.description,
-          _replyto: data.email,
-          _subject: `New design enquiry from ${data.fullName}`,
-          _template: "table",
-          _captcha: "false",
-          // Keep local previews and production submissions attached to one
-          // FormSubmit registration so only one activation is required.
-          _url: FORM_PAGE_URL,
-        }),
-      });
-      const result = await response.json().catch(() => null) as { success?: boolean | string; message?: string } | null;
-      if (result?.success === false || result?.success === "false") {
-        if (result.message?.toLowerCase().includes("activation")) {
-          setStatus("activation");
-          return;
-        }
-        throw new Error("Submission failed");
-      }
-      if (!response.ok) throw new Error("Submission failed");
-      setStatus("success");
-      reset();
-    } catch {
-      setStatus("error");
-    }
-  };
-
-  const fieldError = (name: keyof typeof errors) => errors[name]?.message ? <span className="field-error" id={`${name}-error`}>{String(errors[name]?.message)}</span> : null;
+    if (requestedService === "consultation") window.setTimeout(() => serviceRef.current?.focus(), 100);
+  }, [requestedService]);
 
   return (
-    <form ref={formRef} className="contact-form" action={FORM_ENDPOINT} method="POST" onSubmit={handleSubmit(onSubmit)} noValidate>
+    <form className="contact-form" action={FORM_ENDPOINT} method="POST">
+      <input type="hidden" name="_subject" value="New project enquiry for Designer Prabin" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_url" value={FORM_PAGE_URL} />
       <div className="form-intro"><div><p className="eyebrow">Project enquiry</p><h2>Tell me what you are planning</h2></div><span>Usually replies within 1–2 business days</span></div>
       <div className="form-grid">
-        <label>Full name *<input {...register("fullName")} autoComplete="name" aria-invalid={!!errors.fullName} aria-describedby={errors.fullName ? "fullName-error" : undefined} placeholder="Your full name" />{fieldError("fullName")}</label>
-        <label>Email address *<input {...register("email")} type="email" autoComplete="email" aria-invalid={!!errors.email} placeholder="you@example.com" />{fieldError("email")}</label>
-        <label>Phone number<input {...register("phone")} type="tel" autoComplete="tel" placeholder="+977 …" />{fieldError("phone")}</label>
-        <label>Company or organisation<input {...register("company")} autoComplete="organization" placeholder="Optional" />{fieldError("company")}</label>
-        <label>Required service *<select id="service" {...register("service")} aria-invalid={!!errors.service}>{serviceOptions.map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select>{fieldError("service")}</label>
-        <label>Estimated budget *<select {...register("budget")} aria-invalid={!!errors.budget}><option value="">Select a range</option><option value="under-5000">Under NPR 5,000</option><option value="5000-10000">NPR 5,000–10,000</option><option value="10000-25000">NPR 10,000–25,000</option><option value="25000-50000">NPR 25,000–50,000</option><option value="50000-plus">NPR 50,000+</option><option value="not-sure">Not sure yet</option></select>{fieldError("budget")}</label>
-        <label>Preferred consultation method *<select {...register("consultationMethod")}><option value="phone">Phone call</option><option value="video">Video meeting</option><option value="in-person">In-person in Bharatpur</option><option value="email">Email</option></select></label>
-        <label>Project deadline<input {...register("deadline")} placeholder="For example, September 2026" />{fieldError("deadline")}</label>
-        <label className="form-wide">Project description *<textarea {...register("description")} rows={6} aria-invalid={!!errors.description} placeholder="What do you need, who is it for, and what should the design achieve?" />{fieldError("description")}</label>
-        <label className="honeypot" aria-hidden="true">Website<input {...register("website")} tabIndex={-1} autoComplete="off" /></label>
-        <label className="consent form-wide"><input {...register("consent")} type="checkbox" /><span>I consent to Designer Prabin using these details to respond to my enquiry. *</span></label>
-        {fieldError("consent")}
+        <label>Full name *<input name="name" required minLength={2} maxLength={80} autoComplete="name" placeholder="Your full name" /></label>
+        <label>Email address *<input name="email" required type="email" maxLength={120} autoComplete="email" placeholder="you@example.com" /></label>
+        <label>Phone number<input name="phone" type="tel" maxLength={30} autoComplete="tel" placeholder="+977 …" /></label>
+        <label>Company or organisation<input name="organisation" maxLength={100} autoComplete="organization" placeholder="Optional" /></label>
+        <label>Required service *<select ref={serviceRef} id="service" name="service" required defaultValue={defaultService}>{serviceOptions.map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select></label>
+        <label>Estimated budget *<select name="budget" required defaultValue=""><option value="" disabled>Select a range</option><option value="under-5000">Under NPR 5,000</option><option value="5000-10000">NPR 5,000–10,000</option><option value="10000-25000">NPR 10,000–25,000</option><option value="25000-50000">NPR 25,000–50,000</option><option value="50000-plus">NPR 50,000+</option><option value="not-sure">Not sure yet</option></select></label>
+        <label>Preferred consultation method *<select name="consultation_method" required defaultValue="phone"><option value="phone">Phone call</option><option value="video">Video meeting</option><option value="in-person">In-person in Bharatpur</option><option value="email">Email</option></select></label>
+        <label>Project deadline<input name="deadline" maxLength={50} placeholder="For example, September 2026" /></label>
+        <label className="form-wide">Project description *<textarea name="message" required minLength={20} maxLength={3000} rows={6} placeholder="What do you need, who is it for, and what should the design achieve?" /></label>
+        <label className="honeypot" aria-hidden="true">Website<input name="_honey" tabIndex={-1} autoComplete="off" /></label>
+        <label className="consent form-wide"><input name="consent" required type="checkbox" /><span>I consent to Designer Prabin using these details to respond to my enquiry. *</span></label>
       </div>
-      {status === "success" && <div className="form-message success" role="status"><Icon name="circle-check" />Thank you. Your enquiry has been submitted to Designer Prabin.</div>}
-      {status === "activation" && <div className="form-message error" role="alert">One-time activation is required. Please open the FormSubmit email sent to {CONTACT_EMAIL}, click <b>Activate Form</b>, then submit again.</div>}
-      {status === "error" && <div className="form-message error" role="alert">Your message could not be sent. Please try again or <a href={`mailto:${CONTACT_EMAIL}`}>email directly</a>.</div>}
-      <button className="button form-submit" type="submit" disabled={isSubmitting}>{isSubmitting ? <><span className="spinner" />Submitting…</> : <>Submit Form<Icon name="send" size={18} /></>}</button>
+      <button className="button form-submit" type="submit">Submit Form<Icon name="send" size={18} /></button>
     </form>
   );
 }

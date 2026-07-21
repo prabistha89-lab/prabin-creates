@@ -22,11 +22,10 @@ test("contact enquiries use FormSubmit and the business inbox", () => {
   const route = readFileSync("app/api/contact/route.ts", "utf8");
   const form = readFileSync("components/ContactForm.tsx", "utf8");
   assert.match(route, /formsubmit\.co\/ajax/);
-  assert.match(route, /mail@shresthaprabin89\.com\.np/);
-  assert.match(form, /formsubmit\.co\/ajax/);
-  assert.match(form, /mail@shresthaprabin89\.com\.np/);
+  assert.match(route, /prabistha89@gmail\.com/);
+  assert.match(form, /formsubmit\.co\/\$\{CONTACT_EMAIL\}/);
+  assert.match(form, /prabistha89@gmail\.com/);
   assert.match(form, /designer-prabin-portfolio\.mhflex89\.chatgpt\.site\/contact/);
-  assert.match(form, /Activate Form/);
   assert.match(form, /method="POST"/);
   assert.match(form, /Submit Form/);
 });

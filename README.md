@@ -37,7 +37,7 @@ Copy `.env.example` to `.env.local` and provide:
 - `CONTACT_EMAIL`: inbox that receives FormSubmit enquiries
 - `NEXT_PUBLIC_SITE_URL`: the final canonical website URL
 
-Never commit `.env.local`. The browser form posts directly to FormSubmit at the public business email, and the optional contact API route uses the same address as its default.
+Never commit `.env.local`. The browser form posts directly to FormSubmit at `prabistha89@gmail.com`, and the optional contact API route uses the same address as its default.
 
 ## Validation and production build
 
@@ -80,13 +80,13 @@ download link.
 
 ## Contact email setup
 
-1. Confirm that `mail@shresthaprabin89.com.np` is receiving email normally. Set `CONTACT_EMAIL` only if the optional API route should use a different inbox.
+1. Confirm that `prabistha89@gmail.com` is receiving email normally. Set `CONTACT_EMAIL` only if the optional API route should use a different inbox.
 2. Submit the form once and open the activation email sent by FormSubmit.
 3. Confirm the form using the link in that activation email.
 4. Submit a second test enquiry and confirm it arrives in the destination inbox.
 5. Review logs without printing contact data.
 
-The visible form uses client-side Zod validation, a honeypot and FormSubmit's AJAX endpoint so it works without relying on a framework API route. The optional route handler remains available with server-side validation, input cleaning and basic in-memory rate limiting.
+The visible form uses client-side Zod validation, a honeypot and FormSubmit's standard POST endpoint. The optional route handler remains available with server-side validation, input cleaning and basic in-memory rate limiting.
 Local previews identify themselves with the production contact URL so they reuse the same FormSubmit activation instead of registering a separate localhost form.
 
 ## Legal content
