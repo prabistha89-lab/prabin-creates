@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTiktok } from "react-icons/fa6";
+import Image from "next/image";
 import { services } from "@/data/services";
 import { navigation, siteConfig } from "@/data/site";
 import { Icon } from "./Icon";
 
 export function Footer() {
-  const socialIcons = { Facebook: FaFacebookF, Instagram: FaInstagram, TikTok: FaTiktok, LinkedIn: FaLinkedinIn };
+  const socialIcons = { Facebook: "facebook", Instagram: "instagram", TikTok: "tiktok", LinkedIn: "linkedin" };
   return (
     <footer className="site-footer">
       <div className="container footer-grid">
@@ -13,7 +13,7 @@ export function Footer() {
           <p className="footer-brand-name">Designer Prabin</p>
           <p>AI-powered graphic design, pre-press and professional printing for businesses that value clarity, craft and consistent presentation.</p>
           <div className="social-row">
-            {siteConfig.socials.map((social) => { const SocialIcon = socialIcons[social.label]; return <a key={social.label} href={social.href} target="_blank" rel="noreferrer" aria-label={`Follow Designer Prabin on ${social.label}`} title={social.label}><SocialIcon aria-hidden="true" /><span className="sr-only">{social.label}</span></a>; })}
+            {siteConfig.socials.map((social) => <a key={social.label} href={social.href} target="_blank" rel="noreferrer" aria-label={`Follow Designer Prabin on ${social.label}`} title={social.label}><Image src={`https://cdn.simpleicons.org/${socialIcons[social.label]}/ffffff`} alt="" width={18} height={18} unoptimized /><span className="sr-only">{social.label}</span></a>)}
           </div>
         </div>
         <div><h2>Navigate</h2>{navigation.slice(1).map((item) => <Link key={item.href} href={item.href}>{item.label}</Link>)}</div>
