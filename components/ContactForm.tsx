@@ -7,6 +7,9 @@ import { useForm } from "react-hook-form";
 import { contactSchema, type ContactInput } from "@/lib/validation/contact";
 import { Icon } from "./Icon";
 
+const CONTACT_EMAIL = "mail@shresthaprabin89.com.np";
+const FORM_ENDPOINT = `https://formsubmit.co/ajax/${CONTACT_EMAIL}`;
+
 const serviceOptions = [
   ["branding-visual-identity", "Branding and Visual Identity"], ["print-design", "Print Design"],
   ["social-media-design", "Social Media Graphic Design"], ["advertising-marketing-design", "Advertising and Marketing Design"],
@@ -34,8 +37,34 @@ export function ContactForm() {
   const onSubmit = async (data: ContactInput) => {
     setStatus("idle");
     try {
-      const response = await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
-      if (!response.ok) throw new Error("Submission failed");
+      if (data.website) {
+        setStatus("success");
+        reset();
+        return;
+      }
+
+      const response = await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: data.fullName,
+          email: data.email,
+          phone: data.phone || "Not provided",
+          organisation: data.company || "Not provided",
+          service: data.service,
+          budget: data.budget,
+          consultation_method: data.consultationMethod,
+          deadline: data.deadline || "Not provided",
+          message: data.description,
+          _replyto: data.email,
+          _subject: `New design enquiry from ${data.fullName}`,
+          _template: "table",
+          _captcha: "false",
+          _url: window.location.href.split("#")[0],
+        }),
+      });
+      const result = await response.json().catch(() => null) as { success?: boolean | string } | null;
+      if (!response.ok || result?.success === false || result?.success === "false") throw new Error("Submission failed");
       setStatus("success");
       reset();
     } catch {
@@ -46,7 +75,7 @@ export function ContactForm() {
   const fieldError = (name: keyof typeof errors) => errors[name]?.message ? <span className="field-error" id={`${name}-error`}>{String(errors[name]?.message)}</span> : null;
 
   return (
-    <form ref={formRef} className="contact-form" onSubmit={handleSubmit(onSubmit)} noValidate>
+    <form ref={formRef} className="contact-form" action={FORM_ENDPOINT} method="POST" onSubmit={handleSubmit(onSubmit)} noValidate>
       <div className="form-intro"><div><p className="eyebrow">Project enquiry</p><h2>Tell me what you are planning</h2></div><span>Usually replies within 1–2 business days</span></div>
       <div className="form-grid">
         <label>Full name *<input {...register("fullName")} autoComplete="name" aria-invalid={!!errors.fullName} aria-describedby={errors.fullName ? "fullName-error" : undefined} placeholder="Your full name" />{fieldError("fullName")}</label>
@@ -63,7 +92,7 @@ export function ContactForm() {
         {fieldError("consent")}
       </div>
       {status === "success" && <div className="form-message success" role="status"><Icon name="circle-check" />Thank you. Your enquiry has been submitted to Designer Prabin.</div>}
-      {status === "error" && <div className="form-message error" role="alert">Your message could not be sent. Please try again or email directly.</div>}
+      {status === "error" && <div className="form-message error" role="alert">Your message could not be sent. Please try again or <a href={`mailto:${CONTACT_EMAIL}`}>email directly</a>.</div>}
       <button className="button form-submit" type="submit" disabled={isSubmitting}>{isSubmitting ? <><span className="spinner" />Submitting…</> : <>Submit Form<Icon name="send" size={18} /></>}</button>
     </form>
   );
