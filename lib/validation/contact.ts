@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const serviceValues = ["branding-visual-identity", "print-design", "social-media-design", "advertising-marketing-design", "publication-editorial-design", "digital-marketing-creatives", "consultation", "other"] as const;
+export const serviceValues = ["branding-visual-identity", "print-design", "social-media-design", "advertising-marketing-design", "digital-marketing-creatives", "consultation", "other"] as const;
 
 export const contactSchema = z.object({
   fullName: z.string().trim().min(2, "Please enter your full name.").max(80),

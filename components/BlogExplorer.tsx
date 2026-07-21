@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { posts } from "@/data/posts";
 import { Icon } from "./Icon";
@@ -25,7 +26,10 @@ export function BlogExplorer() {
 export function ArticleCard({ post }: { post: (typeof posts)[number] }) {
   return (
     <article className="blog-card">
-      <Link href={`/blog/${post.slug}`} className={`blog-art blog-art-${post.art}`} aria-label={`Read ${post.title}`}><span>{post.category}</span><b>{post.title.split(" ").slice(0, 2).join(" ")}</b><i /></Link>
+      <Link href={`/blog/${post.slug}`} className="blog-art blog-art-image" aria-label={`Read ${post.title}`}>
+        <Image src={post.image} alt={post.imageAlt} fill unoptimized sizes="(max-width: 800px) 94vw, 31vw" />
+        <span>{post.category}</span>
+      </Link>
       <div className="blog-card-body"><div className="article-info"><span>{post.date}</span><span>•</span><span>{post.readTime}</span></div><h3><Link href={`/blog/${post.slug}`}>{post.title}</Link></h3><p>{post.excerpt}</p><Link href={`/blog/${post.slug}`} className="text-link">Read Article<Icon name="arrow-right" size={17} /></Link></div>
     </article>
   );

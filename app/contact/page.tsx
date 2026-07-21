@@ -30,7 +30,7 @@ export default function ContactPage() {
       </aside>
       <Suspense fallback={<div className="form-loading">Loading enquiry form…</div>}><ContactForm /></Suspense>
     </div></section>
-    <section className="map-section"><div className="container"><div className="map-placeholder" role="img" aria-label="Map placeholder showing Bharatpur, Chitwan"><div className="map-lines" /><span><Icon name="map-pin" size={26} /><b>Bharatpur–11</b><small>Chitwan, Nepal</small></span></div></div></section>
+    <section className="map-section"><div className="container"><div className="map-embed"><iframe title="Google Map showing Designer Prabin in Bharatpur-11, Chitwan" src="https://www.google.com/maps?q=Bharatpur-11%2C%20Chitwan%2C%20Nepal&z=15&output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen /></div><a className="map-open-link" href="https://www.google.com/maps/search/?api=1&query=Bharatpur-11%2C%20Chitwan%2C%20Nepal" target="_blank" rel="noreferrer"><Icon name="map-pin" size={17} />Open current location in Google Maps</a></div></section>
     <section className="section"><div className="container faq-grid"><div><p className="eyebrow">Before you enquire</p><h2>Frequently asked questions</h2></div><Accordion items={faqs} /></div></section>
   </>;
 }

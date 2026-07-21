@@ -10,7 +10,7 @@ import { Icon } from "./Icon";
 const serviceOptions = [
   ["branding-visual-identity", "Branding and Visual Identity"], ["print-design", "Print Design"],
   ["social-media-design", "Social Media Graphic Design"], ["advertising-marketing-design", "Advertising and Marketing Design"],
-  ["publication-editorial-design", "Publication and Editorial Design"], ["digital-marketing-creatives", "Digital Marketing Creatives"],
+  ["digital-marketing-creatives", "Digital Marketing Creatives"],
   ["consultation", "General Consultation"], ["other", "Other"],
 ] as const;
 
@@ -54,7 +54,7 @@ export function ContactForm() {
         <label>Phone number<input {...register("phone")} type="tel" autoComplete="tel" placeholder="+977 …" />{fieldError("phone")}</label>
         <label>Company or organisation<input {...register("company")} autoComplete="organization" placeholder="Optional" />{fieldError("company")}</label>
         <label>Required service *<select id="service" {...register("service")} aria-invalid={!!errors.service}>{serviceOptions.map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select>{fieldError("service")}</label>
-        <label>Estimated budget *<select {...register("budget")} aria-invalid={!!errors.budget}><option value="">Select a range</option><option value="under-25000">Under NPR 25,000</option><option value="25000-50000">NPR 25,000–50,000</option><option value="50000-100000">NPR 50,000–100,000</option><option value="100000-plus">NPR 100,000+</option><option value="not-sure">Not sure yet</option></select>{fieldError("budget")}</label>
+        <label>Estimated budget *<select {...register("budget")} aria-invalid={!!errors.budget}><option value="">Select a range</option><option value="under-5000">Under NPR 5,000</option><option value="5000-10000">NPR 5,000–10,000</option><option value="10000-25000">NPR 10,000–25,000</option><option value="25000-50000">NPR 25,000–50,000</option><option value="50000-plus">NPR 50,000+</option><option value="not-sure">Not sure yet</option></select>{fieldError("budget")}</label>
         <label>Preferred consultation method *<select {...register("consultationMethod")}><option value="phone">Phone call</option><option value="video">Video meeting</option><option value="in-person">In-person in Bharatpur</option><option value="email">Email</option></select></label>
         <label>Project deadline<input {...register("deadline")} placeholder="For example, September 2026" />{fieldError("deadline")}</label>
         <label className="form-wide">Project description *<textarea {...register("description")} rows={6} aria-invalid={!!errors.description} placeholder="What do you need, who is it for, and what should the design achieve?" />{fieldError("description")}</label>

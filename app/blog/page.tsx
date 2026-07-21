@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { BlogExplorer } from "@/components/BlogExplorer";
 import { CTASection } from "@/components/CTASection";
@@ -13,7 +14,7 @@ export default function BlogPage() {
   return <>
     <PageHero eyebrow="Blog" title="Clear thinking for AI-powered design and print." text="Practical notes on AI-assisted creativity, branding, print production, social media and visual communication." />
     <section className="section featured-article"><div className="container">
-      <Link href={`/blog/${featured.slug}`} className={`blog-art blog-art-${featured.art}`}><span>Featured / {featured.category}</span><b>AI design<br />builds<br />trust.</b><i /></Link>
+      <Link href={`/blog/${featured.slug}`} className="blog-art blog-art-image"><Image src={featured.image} alt={featured.imageAlt} fill priority unoptimized sizes="(max-width: 800px) 94vw, 54vw" /><span>Featured / {featured.category}</span></Link>
       <div><p className="eyebrow">Featured article</p><h2>{featured.title}</h2><p className="large-copy">{featured.excerpt}</p><div className="article-info"><span>{featured.date}</span><span>•</span><span>{featured.readTime}</span></div><Link href={`/blog/${featured.slug}`} className="button">Read Article<Icon name="arrow-right" size={18} /></Link></div>
     </div></section>
     <section className="section section-tint"><div className="container"><BlogExplorer /></div></section>
