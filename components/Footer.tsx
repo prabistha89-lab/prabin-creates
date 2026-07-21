@@ -9,7 +9,7 @@ export function Footer() {
       <div className="container footer-grid">
         <div className="footer-intro">
           <p className="footer-brand-name">Designer Prabin</p>
-          <p>Thoughtful print and digital design for businesses that value clarity, craft and consistent presentation.</p>
+          <p>AI-powered graphic design, pre-press and professional printing for businesses that value clarity, craft and consistent presentation.</p>
           <div className="social-row">
             {siteConfig.socials.map((social) => <a key={social.label} href={social.href} target="_blank" rel="noreferrer" aria-label={`Follow Designer Prabin on ${social.label}`}>{social.label}</a>)}
           </div>

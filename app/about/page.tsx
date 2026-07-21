@@ -5,7 +5,7 @@ import { CTASection } from "@/components/CTASection";
 import { Icon } from "@/components/Icon";
 import { PageHero } from "@/components/PageHero";
 
-export const metadata: Metadata = { title: "About Prabin Shrestha", description: "Meet Prabin Shrestha, a print and digital media graphic designer based in Bharatpur, Chitwan.", alternates: { canonical: "/about" } };
+export const metadata: Metadata = { title: "About Prabin Shrestha", description: "Meet Prabin Shrestha, an AI-powered graphic designer and print specialist based in Bharatpur, Chitwan.", alternates: { canonical: "/about" } };
 
 const tools = ["Adobe Photoshop", "Adobe Illustrator", "Adobe InDesign", "CorelDRAW", "Canva", "Figma"];
 const skills = ["Print Production", "Branding", "Typography", "Layout Design", "Social Media Design", "Advertising Design"];

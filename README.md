@@ -1,6 +1,6 @@
 # Designer Prabin Portfolio
 
-A complete, responsive portfolio website for Prabin Shrestha, a Print & Digital Media Graphic Designer in Bharatpur, Chitwan, Nepal. The site presents services, fictional placeholder case studies, useful design articles, consultation information and a secure enquiry flow.
+A complete, responsive portfolio website for Prabin Shrestha, offering AI-powered graphic design, pre-press and professional printing in Bharatpur, Chitwan, Nepal. The site presents services, selected work, design articles, consultation information and a secure enquiry flow.
 
 ## Technology
 

@@ -9,6 +9,8 @@ export type Service = {
   deliverables: string[];
   idealClients: string[];
   benefits: string[];
+  specialties?: string[];
+  images?: { src: string; label: string; alt: string }[];
   process: { title: string; text: string }[];
   faqs: { question: string; answer: string }[];
 };
@@ -25,6 +27,12 @@ export const services: Service[] = [
     deliverables: ["Logo suite", "Brand colour system", "Typography selection", "Brand guidelines", "Business stationery", "Visual identity assets"],
     idealClients: ["Start-ups", "Growing businesses", "Professional services", "Hospitality and retail brands"],
     benefits: ["Stronger recognition", "Consistent communication", "A professional first impression", "Assets ready for print and digital use"],
+    specialties: ["Label Design", "Advertisement Design", "Promotional Product Design"],
+    images: [
+      { src: "/label design.png", label: "Label Design", alt: "Food product label designs applied to three pickle jars" },
+      { src: "/add-A.jpg", label: "Advertisement Design", alt: "Wide-format advertising design created by Designer Prabin" },
+      { src: "/facebook post 17.jpg", label: "Promotional Product Design", alt: "Promotional product graphic designed for social media" },
+    ],
     process: [{ title: "Discover", text: "Clarify your audience, offer and ambition." }, { title: "Position", text: "Define the visual territory and creative direction." }, { title: "Create", text: "Develop and refine the identity system." }, { title: "Launch", text: "Supply organised files and usage guidance." }],
     faqs: [{ question: "How many logo concepts will I receive?", answer: "The proposal defines a focused concept and revision scope so the process stays strategic rather than becoming a volume exercise." }, { question: "Will I receive source files?", answer: "Yes. Final approved work includes organised, editable source files plus practical export formats." }],
   },
@@ -36,9 +44,19 @@ export const services: Service[] = [
     summary: "Tactile, carefully crafted materials prepared correctly for professional production.",
     description: "From a single flyer to a coordinated print campaign, every layout is designed for clarity, impact and dependable production.",
     problems: ["Crowded layouts", "Files rejected by printers", "Marketing materials that lack consistency"],
-    deliverables: ["Brochures", "Flyers and posters", "Banners", "Business cards", "Certificates", "Calendars", "Menus", "Invitations"],
+    deliverables: ["Books", "Brochures", "Prospectuses", "Diaries", "Table and wall calendars", "Flyers and posters", "Pre-press services", "Professional printing services"],
     idealClients: ["Local businesses", "Schools and colleges", "Events", "Restaurants", "Community organisations"],
-    benefits: ["Print-ready artwork", "Clear information hierarchy", "Consistent branding", "Less production risk"],
+    benefits: ["Print-ready artwork", "Complete pre-press support", "Professional printing coordination", "Clear information hierarchy"],
+    specialties: ["Book Design & Printing", "Brochure Design & Printing", "Prospectus Design & Printing", "Diary Design & Printing", "Calendar Design & Printing", "All Pre-press & Printing Services"],
+    images: [
+      { src: "/book.png", label: "Book Design & Printing", alt: "Professionally designed and printed book mockup" },
+      { src: "/brochure.png", label: "Brochure Design & Printing", alt: "College brochure and prospectus cover design" },
+      { src: "/prospectus.png", label: "Prospectus Design", alt: "Educational prospectus presentation design" },
+      { src: "/prospectus-A.png", label: "Prospectus Design Variation", alt: "Alternative educational prospectus design" },
+      { src: "/diary.png", label: "Diary Design & Printing", alt: "Custom branded diary design" },
+      { src: "/Table Calendar.png", label: "Table Calendar", alt: "Custom table calendar design and print presentation" },
+      { src: "/wall calendar.png", label: "Wall Calendar", alt: "Custom wall calendar design and print presentation" },
+    ],
     process: [{ title: "Brief", text: "Confirm format, quantity and production requirements." }, { title: "Structure", text: "Plan the message, hierarchy and reading flow." }, { title: "Design", text: "Create and refine the visual composition." }, { title: "Preflight", text: "Check colour, bleed, resolution and exports." }],
     faqs: [{ question: "Can you work with my printer?", answer: "Yes. I can prepare artwork to a supplier’s specification and help resolve production questions." }, { question: "Do you arrange printing?", answer: "Printing can be coordinated where practical, or I can supply production-ready files for your preferred printer." }],
   },
@@ -53,6 +71,20 @@ export const services: Service[] = [
     deliverables: ["Facebook posts", "Instagram posts", "Story designs", "Campaign creatives", "Cover images", "Reusable templates"],
     idealClients: ["Retail brands", "Education providers", "Creators", "Hospitality", "Service businesses"],
     benefits: ["Faster publishing", "Better brand recall", "Campaign consistency", "Platform-ready sizing"],
+    specialties: ["Facebook Post Design", "Instagram Creative Design", "Campaign Graphics", "Admission & Promotional Posts"],
+    images: [
+      { src: "/facebook post (1).jpg", label: "Social Media Creative 01", alt: "School admission social media advertisement" },
+      { src: "/facebook post (4).jpg", label: "Social Media Creative 02", alt: "Promotional Facebook post design" },
+      { src: "/facebook post (6).jpg", label: "Social Media Creative 03", alt: "Branded social media campaign graphic" },
+      { src: "/facebook post (5).jpg", label: "Social Media Creative 04", alt: "Marketing post designed for Facebook and Instagram" },
+      { src: "/facebook post (7).jpg", label: "Social Media Creative 05", alt: "Professional promotional social post" },
+      { src: "/facebook post (8).jpg", label: "Social Media Creative 06", alt: "Social media advertisement layout" },
+      { src: "/facebook post (10).jpg", label: "Social Media Creative 07", alt: "Digital campaign post design" },
+      { src: "/facebook post (11).jpg", label: "Social Media Creative 08", alt: "Facebook promotional graphic design" },
+      { src: "/facebook post (12).jpg", label: "Social Media Creative 09", alt: "Instagram and Facebook marketing creative" },
+      { src: "/facebook post (13).jpg", label: "Social Media Creative 10", alt: "Branded campaign artwork for social media" },
+      { src: "/facebook post (15).jpg", label: "Social Media Creative 11", alt: "Professional social media post design" },
+    ],
     process: [{ title: "Plan", text: "Map the campaign goal and content themes." }, { title: "System", text: "Create a flexible visual direction." }, { title: "Produce", text: "Design the agreed asset set." }, { title: "Adapt", text: "Optimise artwork for each platform and placement." }],
     faqs: [{ question: "Can I edit the templates myself?", answer: "Editable templates can be included when agreed, using a tool that suits your team." }, { question: "Do you write captions?", answer: "The core service covers visual design; caption support can be scoped separately." }],
   },
@@ -81,6 +113,11 @@ export const services: Service[] = [
     deliverables: ["Books", "Magazines", "Annual reports", "Company profiles", "Catalogues", "Newsletters", "Educational publications"],
     idealClients: ["Publishers", "NGOs", "Schools", "Corporate teams", "Membership organisations"],
     benefits: ["Clear content structure", "Professional typography", "Reliable master pages", "Production-ready output"],
+    specialties: ["Book Design", "Prospectus Design", "Editorial Layout", "Publication Pre-press"],
+    images: [
+      { src: "/book.png", label: "Book Design", alt: "Book cover and publication design presentation" },
+      { src: "/prospectus design.png", label: "Prospectus Design", alt: "Educational prospectus cover and editorial design" },
+    ],
     process: [{ title: "Audit", text: "Review content, structure and production needs." }, { title: "System", text: "Develop grids, styles and sample spreads." }, { title: "Layout", text: "Flow and refine the full publication." }, { title: "Proof", text: "Check corrections and production files carefully." }],
     faqs: [{ question: "Can you handle a long document?", answer: "Yes. A structured InDesign workflow keeps typography, pages and revisions consistent." }, { question: "Do you proofread content?", answer: "Basic visual checks are included; full editorial proofreading should be arranged separately." }],
   },

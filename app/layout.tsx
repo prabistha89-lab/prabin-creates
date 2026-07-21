@@ -18,10 +18,10 @@ export async function generateMetadata(): Promise<Metadata> {
   const origin = host ? `${protocol}://${host}` : siteConfig.url;
   return {
     metadataBase: new URL(origin),
-    title: { default: "Designer Prabin | Print & Digital Media Graphic Designer", template: "%s | Designer Prabin" },
+    title: { default: "Designer Prabin | AI-Powered Graphic Design and Print", template: "%s | Designer Prabin" },
     description: siteConfig.description,
     alternates: { canonical: "/" },
-    openGraph: { type: "website", locale: "en_GB", siteName: siteConfig.brand, title: siteConfig.brand, description: siteConfig.description, images: [{ url: `${origin}/og.png`, width: 1792, height: 938, alt: "Designer Prabin — Print and Digital Media Graphic Designer" }] },
+    openGraph: { type: "website", locale: "en_GB", siteName: siteConfig.brand, title: siteConfig.brand, description: siteConfig.description, images: [{ url: `${origin}/og.png`, width: 1792, height: 938, alt: "Designer Prabin — AI-Powered Graphic Design and Print" }] },
     twitter: { card: "summary_large_image", title: siteConfig.brand, description: siteConfig.description, images: [`${origin}/og.png`] },
     icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
   };
