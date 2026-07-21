@@ -17,3 +17,11 @@ test("consultation links use the canonical query parameter", () => {
   const files = ["components/Header.tsx", "components/CTASection.tsx"];
   for (const file of files) assert.match(readFileSync(file, "utf8"), /\/contact\?service=consultation/);
 });
+
+test("contact enquiries use FormSubmit and the business inbox", () => {
+  const route = readFileSync("app/api/contact/route.ts", "utf8");
+  const form = readFileSync("components/ContactForm.tsx", "utf8");
+  assert.match(route, /formsubmit\.co\/ajax/);
+  assert.match(route, /mail@shresthaprabin89\.com\.np/);
+  assert.match(form, /Submit Form/);
+});

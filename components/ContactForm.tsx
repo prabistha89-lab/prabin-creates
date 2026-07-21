@@ -62,9 +62,9 @@ export function ContactForm() {
         <label className="consent form-wide"><input {...register("consent")} type="checkbox" /><span>I consent to Designer Prabin using these details to respond to my enquiry. *</span></label>
         {fieldError("consent")}
       </div>
-      {status === "success" && <div className="form-message success" role="status"><Icon name="circle-check" />Thank you. Your enquiry has been received and a confirmation has been sent.</div>}
+      {status === "success" && <div className="form-message success" role="status"><Icon name="circle-check" />Thank you. Your enquiry has been submitted to Designer Prabin.</div>}
       {status === "error" && <div className="form-message error" role="alert">Your message could not be sent. Please try again or email directly.</div>}
-      <button className="button form-submit" type="submit" disabled={isSubmitting}>{isSubmitting ? <><span className="spinner" />Sending…</> : <>Send Enquiry<Icon name="send" size={18} /></>}</button>
+      <button className="button form-submit" type="submit" disabled={isSubmitting}>{isSubmitting ? <><span className="spinner" />Submitting…</> : <>Submit Form<Icon name="send" size={18} /></>}</button>
     </form>
   );
 }

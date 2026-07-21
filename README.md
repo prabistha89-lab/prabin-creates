@@ -34,12 +34,10 @@ $env:WRANGLER_LOG_PATH='.wrangler/wrangler.log'
 
 Copy `.env.example` to `.env.local` and provide:
 
-- `RESEND_API_KEY`: private Resend API key
-- `CONTACT_EMAIL`: inbox that receives enquiries
-- `FROM_EMAIL`: verified sender identity; replace the Resend onboarding sender before launch
+- `CONTACT_EMAIL`: inbox that receives FormSubmit enquiries
 - `NEXT_PUBLIC_SITE_URL`: the final canonical website URL
 
-Never commit `.env.local` or API keys. Without an API key, the form stays fully validated but returns a clear configuration error instead of pretending to send.
+Never commit `.env.local`. The contact route defaults to the public business email when `CONTACT_EMAIL` is not set.
 
 ## Validation and production build
 
@@ -82,10 +80,11 @@ download link.
 
 ## Contact email setup
 
-1. Create a Resend account and verify the sending domain.
-2. Set `RESEND_API_KEY`, `FROM_EMAIL` and `CONTACT_EMAIL`.
-3. Submit a test enquiry and confirm that both the owner notification and visitor confirmation arrive.
-4. Review logs without printing contact data or secrets.
+1. Set `CONTACT_EMAIL` to the inbox that should receive enquiries.
+2. Submit the form once and open the activation email sent by FormSubmit.
+3. Confirm the form using the link in that activation email.
+4. Submit a second test enquiry and confirm it arrives in the destination inbox.
+5. Review logs without printing contact data.
 
 The route handler includes server-side Zod validation, a honeypot, input cleaning and basic in-memory rate limiting. For higher-traffic production use, move rate-limit counters to a durable distributed store.
 
