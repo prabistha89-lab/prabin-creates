@@ -24,7 +24,7 @@ export const posts: Post[] = [
     readTime: "11 min read",
     excerpt: "How professional creative direction and AI-assisted workflows create consistent, relevant and trustworthy brand experiences.",
     intro: "In a crowded marketplace, customers often encounter a brand’s visuals before they experience its products or services. A logo, website, advertisement, social media post or package design can immediately influence whether a business appears professional and trustworthy. Artificial intelligence is changing how brands create these visual experiences. When combined with professional design expertise, AI enables businesses to produce consistent, relevant and polished graphics more efficiently. The real value is not simply faster production—it is the ability to build stronger and more recognisable brand trust.",
-    image: "/label design.png",
+    image: "/label.png",
     imageAlt: "Professional product label designs demonstrating a consistent visual identity",
     inlineImages: [
       { src: "/facebook post (10).jpg", alt: "A polished branded social media design", caption: "Consistent campaign graphics help audiences recognise and trust a brand.", afterSection: 2 },

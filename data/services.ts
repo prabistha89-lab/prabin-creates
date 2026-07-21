@@ -29,8 +29,8 @@ export const services: Service[] = [
     benefits: ["Stronger recognition", "Consistent communication", "A professional first impression", "Assets ready for print and digital use"],
     specialties: ["Label Design", "Advertisement Design", "Promotional Product Design"],
     images: [
-      { src: "/label design.png", label: "Label Design", alt: "Food product label designs applied to three pickle jars" },
-      { src: "/add-A.jpg", label: "Advertisement Design", alt: "Wide-format advertising design created by Designer Prabin" },
+      { src: "/label.png", label: "Label Design", alt: "Professional product label and branding design" },
+      { src: "/royal.png", label: "Visual Identity Design", alt: "Royal visual identity and branding design" },
       { src: "/facebook post 17.jpg", label: "Promotional Product Design", alt: "Promotional product graphic designed for social media" },
     ],
     process: [{ title: "Discover", text: "Clarify your audience, offer and ambition." }, { title: "Position", text: "Define the visual territory and creative direction." }, { title: "Create", text: "Develop and refine the identity system." }, { title: "Launch", text: "Supply organised files and usage guidance." }],
@@ -49,12 +49,7 @@ export const services: Service[] = [
     benefits: ["Print-ready artwork", "Complete pre-press support", "Professional printing coordination", "Clear information hierarchy"],
     specialties: ["Book Design & Printing", "Brochure Design & Printing", "Prospectus Design & Printing", "Diary Design & Printing", "Calendar Design & Printing", "All Pre-press & Printing Services"],
     images: [
-      { src: "/book.png", label: "Book Design & Printing", alt: "Professionally designed and printed book mockup" },
-      { src: "/brochure.png", label: "Brochure Design & Printing", alt: "College brochure and prospectus cover design" },
-      { src: "/prospectus.png", label: "Prospectus Design", alt: "Educational prospectus presentation design" },
-      { src: "/prospectus-A.png", label: "Prospectus Design Variation", alt: "Alternative educational prospectus design" },
       { src: "/diary.png", label: "Diary Design & Printing", alt: "Custom branded diary design" },
-      { src: "/Table Calendar.png", label: "Table Calendar", alt: "Custom table calendar design and print presentation" },
       { src: "/wall calendar.png", label: "Wall Calendar", alt: "Custom wall calendar design and print presentation" },
     ],
     process: [{ title: "Brief", text: "Confirm format, quantity and production requirements." }, { title: "Structure", text: "Plan the message, hierarchy and reading flow." }, { title: "Design", text: "Create and refine the visual composition." }, { title: "Preflight", text: "Check colour, bleed, resolution and exports." }],

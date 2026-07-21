@@ -111,3 +111,11 @@
 
 @media(max-width:800px){.featured-article .blog-art-image{min-height:390px}.article-feature-image{height:430px}.map-embed{height:360px}}
 @media(max-width:600px){.featured-article .blog-art-image{min-height:300px}.article-feature-image{height:330px;width:calc(100% - 26px);margin-bottom:55px}.map-embed{height:320px;border-radius:18px}.social-row a{width:44px;min-height:44px;padding:0}}
+
+/* Square blog image frames */
+.blog-art,.featured-article .blog-art{aspect-ratio:1}
+.featured-article .blog-art-image{min-height:0}
+.article-feature-image{width:min(760px,calc(100% - 40px));height:auto;aspect-ratio:1}
+.article-inline-image>div{aspect-ratio:1}
+@media(max-width:800px){.article-feature-image{height:auto}}
+@media(max-width:600px){.featured-article .blog-art-image{min-height:0}.article-feature-image{height:auto}}
