@@ -9,7 +9,7 @@ import { siteConfig } from "@/data/site";
 export const metadata: Metadata = { title: "Contact & Consultation", description: "Request a graphic design quote or consultation with Designer Prabin in Bharatpur, Chitwan.", alternates: { canonical: "/contact" } };
 
 const faqs = [
-  { question: "What should I include in my enquiry?", answer: "Share what you need, the audience, intended formats, approximate deadline and any budget range you already have." },
+  { question: "What should I include in my enquiry?", answer: "Share what you need, the audience, intended formats and approximate deadline." },
   { question: "Can we meet in person?", answer: "Yes. In-person consultations may be arranged in Bharatpur, alongside phone and video options." },
   { question: "How quickly will I receive a quotation?", answer: "After the scope is clear, a tailored quotation and proposed schedule can usually be prepared within a few business days." },
   { question: "Do you work outside Chitwan?", answer: "Yes. Print and digital projects can be managed remotely with clients across Nepal and beyond." },

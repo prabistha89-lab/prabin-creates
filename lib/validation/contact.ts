@@ -8,7 +8,6 @@ export const contactSchema = z.object({
   phone: z.string().trim().max(30).optional(),
   company: z.string().trim().max(100).optional(),
   service: z.enum(serviceValues, { message: "Please select a service." }),
-  budget: z.string().trim().min(1, "Please select an estimated budget."),
   consultationMethod: z.enum(["phone", "video", "in-person", "email"]),
   deadline: z.string().trim().max(50).optional(),
   description: z.string().trim().min(20, "Please share at least 20 characters about your project.").max(3000),

@@ -31,7 +31,6 @@ export async function POST(request: Request) {
         phone: data.phone || "Not provided",
         organisation: data.company || "Not provided",
         service: data.service,
-        budget: data.budget,
         consultation_method: data.consultationMethod,
         deadline: data.deadline || "Not provided",
         message: data.description,
