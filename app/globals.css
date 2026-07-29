@@ -484,3 +484,134 @@ body{background:var(--background);color:var(--navy)}
   .about-scroll-stage{position:relative;top:auto;min-height:auto;padding-block:110px}
   .about-scroll-word{opacity:1!important;filter:none!important;transform:none!important}
 }
+
+/* Refined brand contrast and expanded motion */
+.button.button-white{
+  background:#f8f7f2;
+  color:#1d201e;
+  border-color:#f8f7f2;
+}
+.button.button-white:hover{
+  background:#1d201e;
+  color:#fff;
+  border-color:#1d201e;
+}
+.story-grid .text-link{color:var(--primary-deep)}
+.footer-logo-wrap{
+  display:flex;
+  align-items:center;
+  width:210px;
+  height:82px;
+  padding:8px 12px;
+  overflow:hidden;
+  background:#f1efe9;
+  border-radius:2px;
+}
+.footer-logo-wrap img{width:100%;height:100%;object-fit:contain}
+.blog-art-image.blog-art-identity{background:#f1efe9}
+.blog-art-image.blog-art-identity img{object-fit:contain;padding:28px}
+.site-footer .footer-intro>p{color:#c4c1ba}
+.site-footer .footer-grid>div:not(:first-child)>a,
+.site-footer .footer-location{color:#dedbd3}
+.site-footer .footer-grid>div:not(:first-child)>a:hover{color:var(--primary)}
+.site-footer .footer-bottom{color:#aaa8a1}
+.site-footer .footer-bottom a{color:#d0cdc5}
+.site-footer .footer-bottom a:hover{color:var(--primary)}
+
+.cine-ai-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:14px;
+  margin-top:27px;
+  padding:8px 15px 8px 9px;
+  border:1px solid rgba(29,32,30,.52);
+  border-radius:999px;
+  background:rgba(248,247,242,.48);
+  backdrop-filter:blur(8px);
+}
+.cine-ai-badge span{
+  padding:5px 9px;
+  border-radius:999px;
+  background:var(--primary);
+  color:#fff;
+  font-size:.52rem;
+  font-weight:850;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.cine-ai-badge b{
+  font-size:.67rem;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+}
+.cine-hero-orbit{
+  position:absolute;
+  z-index:0;
+  pointer-events:none;
+  border:1px solid rgba(29,32,30,.18);
+  border-radius:50%;
+  animation:cine-orbit-spin 24s linear infinite;
+}
+.cine-hero-orbit i{
+  position:absolute;
+  left:50%;
+  top:-5px;
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:var(--primary);
+  box-shadow:0 0 0 8px rgba(255,91,55,.1);
+}
+.orbit-one{width:420px;height:420px;right:-180px;top:15%}
+.orbit-two{width:190px;height:190px;left:-95px;bottom:9%;animation-direction:reverse;animation-duration:17s}
+.cine-hero h1 span{animation:cine-title-in .85s .08s both cubic-bezier(.22,1,.36,1)}
+.cine-hero h1 em{animation:cine-title-in .9s .2s both cubic-bezier(.22,1,.36,1)}
+.cine-portrait:before{
+  content:"";
+  position:absolute;
+  z-index:2;
+  inset:-50% -80%;
+  background:linear-gradient(115deg,transparent 43%,rgba(255,255,255,.3) 49%,transparent 55%);
+  transform:translateX(-45%);
+  animation:cine-portrait-light 7s 1.5s ease-in-out infinite;
+}
+.cine-portrait-note{animation:cine-note-float 4.2s ease-in-out infinite}
+.cine-service-row{position:relative;isolation:isolate;overflow:hidden}
+.cine-service-row:before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  inset:0;
+  background:var(--primary);
+  transform:translateX(-101%);
+  transition:transform .48s cubic-bezier(.22,1,.36,1);
+}
+.cine-service-row:hover{background:transparent}
+.cine-service-row:hover:before{transform:translateX(0)}
+.cine-journal-card svg{transition:transform .35s cubic-bezier(.22,1,.36,1)}
+.cine-journal-card:hover svg{transform:translate(7px,-7px)}
+
+@keyframes cine-orbit-spin{to{transform:rotate(360deg)}}
+@keyframes cine-title-in{from{opacity:0;transform:translateY(55px);filter:blur(10px)}to{opacity:1;transform:none;filter:none}}
+@keyframes cine-portrait-light{0%,55%{transform:translateX(-45%)}80%,100%{transform:translateX(45%)}}
+@keyframes cine-note-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+
+@supports(animation-timeline:view()){
+  .cine-service-row,.cine-journal-card,.footer-grid>div{
+    animation:cine-scroll-rise linear both;
+    animation-timeline:view();
+    animation-range:entry 0% cover 32%;
+  }
+}
+@keyframes cine-scroll-rise{from{opacity:.15;transform:translateY(32px)}to{opacity:1;transform:none}}
+
+@media(max-width:600px){
+  .cine-ai-badge{margin-top:20px;gap:9px;padding-right:11px}
+  .cine-ai-badge b{font-size:.58rem}
+  .orbit-one{width:260px;height:260px;right:-150px}
+  .orbit-two{display:none}
+  .footer-logo-wrap{width:185px;height:72px}
+}
+@media(prefers-reduced-motion:reduce){
+  .cine-hero-orbit,.cine-hero h1 span,.cine-hero h1 em,.cine-portrait:before,.cine-portrait-note,.cine-service-row,.cine-journal-card,.footer-grid>div{animation:none!important}
+}

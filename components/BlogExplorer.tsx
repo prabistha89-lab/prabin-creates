@@ -26,7 +26,7 @@ export function BlogExplorer() {
 export function ArticleCard({ post }: { post: (typeof posts)[number] }) {
   return (
     <article className="blog-card">
-      <Link href={`/blog/${post.slug}`} className="blog-art blog-art-image" aria-label={`Read ${post.title}`}>
+      <Link href={`/blog/${post.slug}`} className={`blog-art blog-art-image blog-art-${post.art}`} aria-label={`Read ${post.title}`}>
         <Image src={post.image} alt={post.imageAlt} fill unoptimized sizes="(max-width: 800px) 94vw, 31vw" />
         <span>{post.category}</span>
       </Link>

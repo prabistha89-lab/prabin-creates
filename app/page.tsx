@@ -7,8 +7,8 @@ import { posts } from "@/data/posts";
 import { services } from "@/data/services";
 
 export const metadata: Metadata = {
-  title: "Graphic Design, Print and Creative Direction in Chitwan",
-  description: "Brand identity, graphic design, pre-press and professional printing by Prabin Shrestha in Bharatpur, Chitwan, Nepal.",
+  title: "Graphic Design, Print and AI Digital Marketing in Chitwan",
+  description: "Brand identity, graphic design, professional printing and AI digital marketing by Prabin Shrestha in Bharatpur, Chitwan, Nepal.",
   alternates: { canonical: "/" },
 };
 
@@ -30,16 +30,19 @@ export default function Home() {
     <div className="cine-home">
       <section className="cine-hero">
         <div className="cine-grid-texture" aria-hidden="true" />
+        <div className="cine-hero-orbit orbit-one" aria-hidden="true"><i /></div>
+        <div className="cine-hero-orbit orbit-two" aria-hidden="true"><i /></div>
         <div className="container cine-hero-meta">
           <span>Independent creative practice</span>
-          <span>Design · Print · Direction</span>
+          <span>Design · Print · AI Marketing</span>
           <span>Bharatpur, Nepal</span>
         </div>
         <div className="container cine-hero-stage">
           <Reveal className="cine-hero-copy">
             <p className="cine-kicker"><span />Available for selected projects</p>
             <h1><span>Prabin</span><em>creates.</em></h1>
-            <p className="cine-hero-intro">Distinctive visual communication shaped by strategy, craft and real production knowledge.</p>
+            <div className="cine-ai-badge"><span>New capability</span><b>AI Digital Marketing</b></div>
+            <p className="cine-hero-intro">Distinctive visual communication and AI-powered digital marketing shaped by strategy, craft and real production knowledge.</p>
             <div className="cine-actions">
               <Link href="/services" className="cine-pill">Explore the work<Icon name="arrow-right" size={18} /></Link>
               <Link href="/contact?service=consultation" className="cine-text-link">Start a project</Link>
@@ -50,15 +53,15 @@ export default function Home() {
             <div className="cine-portrait">
               <Image src="/images/profile/prabin-shrestha.png" alt="Prabin Shrestha, graphic designer and print specialist" fill priority unoptimized sizes="(max-width: 900px) 88vw, 39vw" />
             </div>
-            <div className="cine-portrait-note"><b>Prabin Shrestha</b><span>Graphic designer & print specialist</span></div>
+            <div className="cine-portrait-note"><b>Prabin Shrestha</b><span>Design · print · AI digital marketing</span></div>
           </Reveal>
         </div>
         <div className="container cine-scroll-cue"><span>Scroll to explore</span><i /></div>
       </section>
 
       <div className="cine-marquee" aria-label="Creative services">
-        <div>{["Brand Identity", "Editorial Design", "Professional Print", "Campaign Creative", "Social Media", "Pre-press"].map((item) => <span key={item}>{item}<i>✦</i></span>)}</div>
-        <div aria-hidden="true">{["Brand Identity", "Editorial Design", "Professional Print", "Campaign Creative", "Social Media", "Pre-press"].map((item) => <span key={item}>{item}<i>✦</i></span>)}</div>
+        <div>{["Brand Identity", "Editorial Design", "Professional Print", "AI Digital Marketing", "Social Media", "Pre-press"].map((item) => <span key={item}>{item}<i>✦</i></span>)}</div>
+        <div aria-hidden="true">{["Brand Identity", "Editorial Design", "Professional Print", "AI Digital Marketing", "Social Media", "Pre-press"].map((item) => <span key={item}>{item}<i>✦</i></span>)}</div>
       </div>
 
       <section className="cine-feature">
@@ -109,7 +112,7 @@ export default function Home() {
           <div className="cine-reel-shot reel-shot-two"><Image src="/diary.png" alt="" fill unoptimized sizes="100vw" /></div>
           <div className="cine-reel-shot reel-shot-three"><Image src="/label.png" alt="" fill unoptimized sizes="100vw" /></div>
           <div className="cine-reel-shot reel-shot-four"><Image src="/wall calendar.png" alt="" fill unoptimized sizes="100vw" /></div>
-          <div className="cine-reel-overlay"><span>Ideas into impact</span><b>Prabin<br /><em>creates.</em></b><small>Graphic design · Print · Creative direction</small></div>
+          <div className="cine-reel-overlay"><span>Ideas into impact</span><b>Prabin<br /><em>creates.</em></b><small>Graphic design · Print · AI digital marketing</small></div>
         </div>
       </section>
 
