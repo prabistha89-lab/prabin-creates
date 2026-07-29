@@ -9,6 +9,11 @@ export function Footer() {
   const socialIcons = { Facebook: "facebook", Instagram: "instagram", TikTok: "tiktok", LinkedIn: "linkedin" };
   return (
     <footer className="site-footer">
+      <div className="container footer-statement">
+        <p>Independent creative practice · Bharatpur, Nepal</p>
+        <h2>Good design makes<br /><em>the message matter.</em></h2>
+        <Link href="/contact?service=consultation" className="footer-project-link">Start a project<Icon name="arrow-right" size={22} /></Link>
+      </div>
       <div className="container footer-grid">
         <div className="footer-intro">
           <p className="footer-brand-name">Designer Prabin</p>

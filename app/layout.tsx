@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
-import { Manrope, Inter } from "next/font/google";
+import { DM_Serif_Display, Manrope, Inter } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Icon } from "@/components/Icon";
@@ -10,6 +10,7 @@ import "./globals.css";
 
 const heading = Manrope({ variable: "--font-heading", subsets: ["latin"], display: "swap" });
 const body = Inter({ variable: "--font-body", subsets: ["latin"], display: "swap" });
+const editorial = DM_Serif_Display({ variable: "--font-editorial", subsets: ["latin"], weight: "400", display: "swap" });
 
 export async function generateMetadata(): Promise<Metadata> {
   const requestHeaders = await headers();
@@ -21,8 +22,8 @@ export async function generateMetadata(): Promise<Metadata> {
     title: { default: "Designer Prabin | AI-Powered Graphic Design and Print", template: "%s | Designer Prabin" },
     description: siteConfig.description,
     alternates: { canonical: "/" },
-    openGraph: { type: "website", locale: "en_GB", siteName: siteConfig.brand, title: siteConfig.brand, description: siteConfig.description, images: [{ url: `${origin}/og.png`, width: 1792, height: 938, alt: "Designer Prabin — AI-Powered Graphic Design and Print" }] },
-    twitter: { card: "summary_large_image", title: siteConfig.brand, description: siteConfig.description, images: [`${origin}/og.png`] },
+    openGraph: { type: "website", locale: "en_GB", siteName: siteConfig.brand, title: siteConfig.brand, description: siteConfig.description, images: [{ url: `${origin}/og-editorial.png`, width: 1731, height: 909, alt: "Prabin Creates — Design, Print and Creative Direction" }] },
+    twitter: { card: "summary_large_image", title: siteConfig.brand, description: siteConfig.description, images: [`${origin}/og-editorial.png`] },
     icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
   };
 }
@@ -31,7 +32,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   const schema = { "@context": "https://schema.org", "@graph": [{ "@type": "Person", name: siteConfig.name, jobTitle: siteConfig.role, email: siteConfig.email, telephone: siteConfig.phoneHref, address: { "@type": "PostalAddress", addressLocality: "Bharatpur", addressRegion: "Chitwan", addressCountry: "NP" }, url: siteConfig.url }, { "@type": "ProfessionalService", name: siteConfig.brand, description: siteConfig.description, email: siteConfig.email, telephone: siteConfig.phoneHref, areaServed: "Nepal", url: siteConfig.url }] };
   return (
     <html lang="en">
-      <body className={`${heading.variable} ${body.variable}`}>
+      <body className={`${heading.variable} ${body.variable} ${editorial.variable}`}>
         <a className="skip-link" href="#main-content">Skip to content</a>
         <Header />
         <main id="main-content">{children}</main>
