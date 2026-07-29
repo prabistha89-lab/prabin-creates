@@ -11,7 +11,7 @@ const FORM_PAGE_URL = "https://designer-prabin-portfolio.mhflex89.chatgpt.site/c
 const serviceOptions = [
   ["branding-visual-identity", "Branding and Visual Identity"], ["print-design", "Print Design"],
   ["social-media-design", "Social Media Graphic Design"], ["advertising-marketing-design", "Advertising and Marketing Design"],
-  ["digital-marketing-creatives", "Digital Marketing Creatives"],
+  ["digital-marketing-creatives", "AI Digital Marketing"],
   ["consultation", "General Consultation"], ["other", "Other"],
 ] as const;
 

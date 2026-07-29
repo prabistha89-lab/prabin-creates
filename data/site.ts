@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Prabin Shrestha",
   brand: "Designer Prabin",
-  role: "AI-Powered Graphic Design and Print Specialist",
+  role: "Graphic Design, Print and AI Digital Marketing Specialist",
   email: "mail@shresthaprabin89.com.np",
   phone: "+977 9845150872",
   phoneHref: "+9779845150872",
@@ -12,7 +12,7 @@ export const siteConfig = {
     process.env.NEXT_PUBLIC_SITE_URL ||
     "https://designer-prabin-portfolio.mhflex89.chatgpt.site",
   description:
-    "AI-powered graphic design, pre-press and professional printing services in Bharatpur, Chitwan, Nepal.",
+    "Graphic design, pre-press, professional printing and AI digital marketing services in Bharatpur, Chitwan, Nepal.",
   socials: [
     { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61591835314293" },
     { label: "Instagram", href: "https://www.instagram.com/prabincreates" },
