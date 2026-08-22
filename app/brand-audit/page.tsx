@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BrandAuditForm } from "@/components/BrandAuditForm";
 import { Icon } from "@/components/Icon";
 import { Reveal } from "@/components/Reveal";
 
@@ -33,7 +32,7 @@ export default function BrandAuditPage() {
             <p className="eyebrow">The Business Visual Brand Audit</p>
             <h1><span>7 things to fix</span> before spending more money on marketing.</h1>
             <p>A practical brand and graphic design checklist for business owners who want to look more professional, communicate clearly and build trust.</p>
-            <div className="audit-hero-actions"><a href="#free-audit-form" className="button">Get My Free Brand Audit<Icon name="arrow-right" size={18} /></a><a href="#audit-checklist" className="cine-text-link">Explore the checklist</a></div>
+            <div className="audit-hero-actions"><Link href="/brand-audit-form" className="button">Get My Free Brand Audit<Icon name="arrow-right" size={18} /></Link><a href="#audit-checklist" className="cine-text-link">Explore the checklist</a></div>
           </Reveal>
           <Reveal className="audit-hero-score" delay={0.08}>
             <span>Free / 15-point assessment</span><strong>Is your business good…<br /><em>but your design doesn’t show it?</em></strong>
@@ -61,7 +60,12 @@ export default function BrandAuditPage() {
 
       <section className="audit-first-fixes section"><div className="container"><p className="eyebrow">Fix these first</p><h2>The five customer touchpoints that usually create the fastest improvement.</h2><div>{firstFixes.map((item,index)=><article key={item}><span>0{index+1}</span><h3>{item}</h3></article>)}</div><p className="audit-formula">Brand <i>→</i> Attention <i>→</i> Trust <i>→</i> Offer <i>→</i> Action <i>→</i> Sales</p></div></section>
 
-      <section id="free-audit-form" className="audit-form-section section"><div className="container"><BrandAuditForm /></div></section>
+      <section className="audit-application-cta section">
+        <div className="container audit-application-grid">
+          <Reveal><p className="eyebrow">Ready for your review?</p><h2>The audit form now has its own focused space.</h2></Reveal>
+          <Reveal delay={0.06}><p>Share your business details, complete the 15-point self-assessment and choose the customer touchpoints you want reviewed.</p><Link href="/brand-audit-form" className="cine-pill cine-pill-dark">Open the Free Brand Audit Form<Icon name="arrow-right" size={18} /></Link></Reveal>
+        </div>
+      </section>
 
       <section className="audit-final"><div className="container"><p>Good design is not simply decoration.</p><h2>Make your business look as good as it really is.</h2><Link href="/contact" className="cine-text-link cine-text-link-light">Or discuss a project directly<Icon name="arrow-right" size={18} /></Link></div></section>
     </div>

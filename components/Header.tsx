@@ -32,7 +32,7 @@ export function Header() {
           ))}
         </nav>
         <div className="nav-actions">
-          <Link href="/brand-audit" className="button button-small">Free Brand Audit</Link>
+          <Link href="/brand-audit-form" className="button button-small">Free Brand Audit</Link>
           <button className="menu-button" type="button" onClick={() => setOpen(!open)} aria-expanded={open} aria-controls="mobile-menu" aria-label={open ? "Close menu" : "Open menu"}>
             <Icon name={open ? "x" : "menu"} size={23} />
           </button>
@@ -43,7 +43,7 @@ export function Header() {
           <div className="container">
             {navigation.map((item) => <Link key={item.href} href={item.href} onClick={() => setOpen(false)}>{item.label}<Icon name="arrow-right" size={17} /></Link>)}
             <a href={siteConfig.whatsappHref} target="_blank" rel="noreferrer" className="button button-whatsapp" onClick={() => setOpen(false)}>Message on WhatsApp</a>
-            <Link href="/brand-audit" className="button" onClick={() => setOpen(false)}>Get a Free Brand Audit</Link>
+            <Link href="/brand-audit-form" className="button" onClick={() => setOpen(false)}>Get a Free Brand Audit</Link>
             <Link href="/contact?service=consultation" className="button button-outline" onClick={() => setOpen(false)}>Start a Project</Link>
           </div>
         </nav>

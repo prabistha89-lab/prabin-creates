@@ -155,7 +155,7 @@ export default function Home() {
         <div className="home-audit-ring" aria-hidden="true"><span>15</span></div>
         <div className="container home-audit-grid">
           <Reveal><p className="cine-kicker"><span />Free business resource</p><h2>Is your business good…<br /><em>but your design doesn’t show it?</em></h2></Reveal>
-          <Reveal delay={0.08}><p>Use the free visual brand audit to assess your logo, social media, advertisements, marketing materials and sales communication—then discover what to fix first.</p><Link href="/brand-audit" className="cine-pill cine-pill-light">Get My Free Brand Audit<Icon name="arrow-right" size={18} /></Link><small>Practical review · 15-point score · Clear recommendations</small></Reveal>
+          <Reveal delay={0.08}><p>Use the free visual brand audit to assess your logo, social media, advertisements, marketing materials and sales communication—then discover what to fix first.</p><Link href="/brand-audit-form" className="cine-pill cine-pill-light">Get My Free Brand Audit<Icon name="arrow-right" size={18} /></Link><Link href="/brand-audit" className="home-audit-guide-link">View the 7-point audit guide</Link><small>Practical review · 15-point score · Clear recommendations</small></Reveal>
         </div>
       </section>
 

@@ -52,7 +52,7 @@ export function BrandAuditForm() {
       <input type="hidden" name="_subject" value="New Free Visual Brand Audit Request" />
       <input type="hidden" name="_template" value="table" />
       <input type="hidden" name="_captcha" value="false" />
-      <input type="hidden" name="_next" value="https://www.shresthaprabin89.com.np/brand-audit?submitted=true" />
+      <input type="hidden" name="_next" value="https://www.shresthaprabin89.com.np/brand-audit-form?submitted=true" />
       <input type="hidden" name="visual_brand_score" value={`${score} / 15 — ${result.label}`} />
       <input type="text" name="_honey" className="audit-honeypot" tabIndex={-1} autoComplete="off" aria-hidden="true" />
 
