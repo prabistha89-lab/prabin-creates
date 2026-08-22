@@ -12,7 +12,7 @@ export function Footer() {
       <div className="container footer-statement">
         <p>Independent creative practice · Bharatpur, Nepal</p>
         <h2>Good design makes<br /><em>the message matter.</em></h2>
-        <Link href="/contact?service=consultation" className="footer-project-link">Start a project<Icon name="arrow-right" size={22} /></Link>
+        <Link href="/brand-audit" className="footer-project-link">Free brand audit<Icon name="arrow-right" size={22} /></Link>
       </div>
       <div className="container footer-grid">
         <div className="footer-intro">

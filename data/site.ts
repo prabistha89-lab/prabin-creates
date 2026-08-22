@@ -25,6 +25,7 @@ export const navigation = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
+  { label: "Free Audit", href: "/brand-audit" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ] as const;

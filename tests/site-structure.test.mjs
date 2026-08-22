@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
 import test from "node:test";
 
-const required = ["app/page.tsx", "app/about/page.tsx", "app/services/page.tsx", "app/services/[slug]/page.tsx", "app/blog/page.tsx", "app/blog/[slug]/page.tsx", "app/contact/page.tsx", "app/api/contact/route.ts", "app/sitemap.ts", "app/robots.ts", ".env.example"];
+const required = ["app/page.tsx", "app/about/page.tsx", "app/services/page.tsx", "app/services/[slug]/page.tsx", "app/blog/page.tsx", "app/blog/[slug]/page.tsx", "app/brand-audit/page.tsx", "app/contact/page.tsx", "app/api/contact/route.ts", "app/sitemap.ts", "app/robots.ts", ".env.example"];
 
 test("required routes and production files exist", () => {
   for (const file of required) assert.equal(existsSync(file), true, `${file} should exist`);
@@ -28,4 +28,16 @@ test("contact enquiries use FormSubmit and the business inbox", () => {
   assert.match(form, /designer-prabin-portfolio\.mhflex89\.chatgpt\.site\/contact/);
   assert.match(form, /method="POST"/);
   assert.match(form, /Submit Form/);
+});
+
+test("free brand audit is discoverable and uses the live FormSubmit flow", () => {
+  const navigation = readFileSync("data/site.ts", "utf8");
+  const form = readFileSync("components/BrandAuditForm.tsx", "utf8");
+  const sitemap = readFileSync("app/sitemap.ts", "utf8");
+  assert.match(navigation, /Free Audit/);
+  assert.match(navigation, /\/brand-audit/);
+  assert.match(sitemap, /\/brand-audit/);
+  assert.match(form, /formsubmit\.co\/prabistha89@gmail\.com/);
+  assert.match(form, /Get My Free Brand Audit/);
+  assert.match(form, /visual_brand_score/);
 });
